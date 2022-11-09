@@ -1,0 +1,262 @@
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+      <!--=============== BOXICONS ===============-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<body>    
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+            <img src="./assets/img/favicon.png"  class="imgr" alt="">
+            <p>STORE</p>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list menu">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link active-link ">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#products" class="nav__link">Products</a>
+                    </li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class="bx bx-x"></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <i class="bx bx-moon change-theme" id="theme-button"></i>
+            
+                <div class="nav__shop" id="cart-shop">
+                    <i class="bx bx-shopping-bag"></i>
+                    <span id="cart-count" class="count">0</span>
+                </div>
+            
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="bx bx-grid-alt"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--==================== CART ====================-->
+    <div class="cart" id="cart">
+        <i class="bx bx-x cart__close" id="cart-close"></i>
+    
+        <h2 class="cart__title-center">My Cart</h2>
+    
+        <div class="cart__container">
+    <div class="cart__empty">
+        <img src="./assets/img/empty-cart.png" alt="empty cart">
+        <h2>Your cart is empty</h2>
+        <p>You can add items to your cart by clicking on the "<i class="bx bx-plus"></i>" button on the product page.</p>
+    </div>
+    </div>
+    
+        <div class="cart__prices">
+            <span class="cart__prices-item"><span id="items-count">0</span> items</span>
+            <span class="cart__prices-total" id="cart-total">$0.00</span>
+        </div>
+    
+        <div class="cart__checkout">
+            <button class="button cart__btn" id="cart-checkout">
+                <i class="bx bxs-check-shield"></i> 
+                Checkout
+            </button>
+        </div>
+    </div>
+    <!--==================== MAIN ====================-->
+    <main class="main">
+    <!--==================== HOME ====================-->
+        <section class="home" id="home">
+            <div class="home__container container grid">
+                <div class="home__img-bg">
+                    <img src="./assets/img/home.png" alt="" class="home__img pr__img">
+                </div>
+                <div class="home__data">
+                    <h1 class="home__title">New Sweatshirt <br> COLLECTIONS 2022</h1>
+                    <p class="home__description change ">
+                        Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the 2022 series, with a modern
+                        design.
+                    </p>
+                    <span class="home__price">$14.00</span>
+                    <div class="home__btns">
+                        <a href="#" class="button button--gray button--small">
+                        Discover
+                        </a>
+                        <button class="button home__button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!--==================== PRODUCTS ====================-->
+        <section class="products" id="products">
+            <div class="products__container container">
+                <ul class="products__filters">
+                    <li class="products__item products__line active-product mixitup-control-active" data-filter="all">
+                        <h3 class="products__title" data-filter="all">
+                            Show All
+                        </h3>
+                        <span class="products__stock" data-filter="all">
+                            show all products
+                        </span>
+                    </li>
+                
+                    <li class="products__item products__line" data-filter=".hoodies">
+                        <h3 class="products__title" data-filter=".hoodies">
+                            Hoodies
+                        </h3>
+                        <span class="products__stock" data-filter=".hoodies">
+                            10 products
+                        </span>
+                    </li>
+                
+                    <li class="products__item products__line" data-filter=".shirts">
+                        <h3 class="products__title" data-filter=".shirts">
+                            Shirts
+                        </h3>
+                        <span class="products__stock" data-filter=".shirts">
+                            15 products
+                        </span>
+                    </li>
+                
+                    <li class="products__item" data-filter=".sweatshirts">
+                        <h3 class="products__title" data-filter=".sweatshirts">
+                            Sweatshirts
+                        </h3>
+                        <span class="products__stock" data-filter=".sweatshirts">
+                            20 products
+                        </span>
+                    </li>
+                </ul>
+            
+                <div class="products__content grid" id="products__content">
+    <article class="products__card hoodies">
+        <div class="products__shape contenedor">
+            <img src="./assets/img/featured1.png" alt="hoodies" class="products__img">
+        </div>
+    
+        <div class="products__data">
+            <h2 class="products__price">$14.00 <span class="products__quantity">| Stock: 10</span></h2>
+            <h3 class="products__name">Hoodies</h3>
+        
+            <button class="button products__button">
+                <i class="bx bx-plus" data-id="1"></i>
+            </button>
+        </div>
+    </article>
+    
+    <article class="products__card shirts">
+        <div class="products__shape">
+            <img src="./assets/img/featured2.png" alt="shirts" class="products__img">
+        </div>
+    
+        <div class="products__data">
+            <h2 class="products__price">$24.00 <span class="products__quantity">| Stock: 15</span></h2>
+            <h3 class="products__name">Shirts</h3>
+        
+            <button class="button products__button">
+                <i class="bx bx-plus" data-id="2"></i>
+            </button>
+        </div>
+    </article>
+    
+    <article class="products__card sweatshirts">
+        <div class="products__shape">
+            <img src="./assets/img/featured3.png" alt="sweatshirts" class="products__img">
+        </div>
+    
+        <div class="products__data">
+            <h2 class="products__price">$24.00 <span class="products__quantity">| Stock: 20</span></h2>
+            <h3 class="products__name">Sweatshirts</h3>
+        
+            <button class="button products__button">
+                <i class="bx bx-plus" data-id="3"></i>
+            </button>
+        </div>
+    </article>
+    </div>
+        </div></section>
+    
+    </main>
+    <!--==================== FOOTER ====================-->
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">Our information</h3>
+                <ul class="footer__list menu">
+                    <li><p><a href="https://www.google.com/maps/d/u/0/viewer?ie=UTF8&msa=0&ll=-35.46100848800244%2C-66.73343807458878&spn=39.706852%2C52.558594&z=4&source=embed&mid=1WIBy58BIl16rWQJbGIO0MlEzCwo" target="_blank"> <i class='bx bx-current-location'> Mendoza - Argentina</i></a></p></li>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">About Us</h3>
+
+                <ul class="footer__links menu">
+                    <li>
+                        <a href="#" class="footer__link">Support Center</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link">Customer Support</a>
+                    </li>
+                    <li>
+                        <a href="https://frolicking-haupia-a306c8.netlify.app/" target="_blank" class="footer__link">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link">Copy Right</a>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="footer__content">
+                <h3 class="footer__title">Product</h3>
+
+                <ul class="footer__links menu">
+                    <li>
+                        <a href="#" class="footer__link">Hoodies</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link">Shirts</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link">Sweatshirts</a>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="footer__content">
+                <h3 class="footer__title">Social</h3>
+
+                <ul class="footer__social menu">
+                    <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                        <i class="bx bxl-facebook"></i>
+                    </a>
+
+                    <a href="https://twitter.com/" target="_blank" class="footer__social-link">
+                        <i class="bx bxl-twitter"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                        <i class="bx bxl-instagram"></i>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <span class="reg"><i class='bx bx-registered'></i><a href="https://frolicking-haupia-a306c8.netlify.app/" target="_blank"> BONPABLO</a></span>
+    </footer>
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="bx bx-up-arrow-alt scrollup__icon"></i>
+    </a>
+
+
+    <script src="./assets/main/main.js"></script>
+
+<div id="wot-new-assistant-container"><div data-reactroot=""></div></div></body></html>
