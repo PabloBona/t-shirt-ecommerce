@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="./assets/css/styles.css">
-      <!--=============== BOXICONS ===============-->
+    <!--=============== BOXICONS ===============-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <!--=============== Font Awesome ===============-->
+    <script src="https://kit.fontawesome.com/953eae4970.js" crossorigin="anonymous"></script>
 <body>    
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
@@ -28,20 +29,19 @@
                 </ul>
 
                 <div class="nav__close" id="nav-close">
-                    <i class="bx bx-x"></i>
+                    <i class='bx bx-x-circle'></i>
                 </div>
             </div>
 
             <div class="nav__btns">
-                <i class="bx bx-moon change-theme" id="theme-button"></i>
-            
+                <i class='bx bxs-moon' id="night-button"></i>
                 <div class="nav__shop" id="cart-shop">
-                    <i class="bx bx-shopping-bag"></i>
+                    <i class='bx bxs-shopping-bags'></i>
                     <span id="cart-count" class="count">0</span>
                 </div>
             
                 <div class="nav__toggle" id="nav-toggle">
-                    <i class="bx bx-grid-alt"></i>
+                    <i class='bx bx-menu-alt-right'></i>
                 </div>
             </div>
         </nav>
@@ -74,7 +74,7 @@
     </div>
     <!--==================== MAIN ====================-->
     <main class="main">
-    <!--==================== HOME ====================-->
+    
         <section class="home" id="home">
             <div class="home__container container grid">
                 <div class="home__img-bg">
@@ -88,10 +88,10 @@
                     </p>
                     <span class="home__price">$14.00</span>
                     <div class="home__btns">
-                        <a href="#" class="button button--gray button--small">
+                        <a class="button button--gray button--small">
                         Discover
                         </a>
-                        <button class="button home__button">ADD TO CART</button>
+                        <a href="#shirt"><button class="button home__button shop__button">ADD TO CART</button></a>
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                         <h3 class="products__title" data-filter=".hoodies">
                             Hoodies
                         </h3>
-                        <span class="products__stock" data-filter=".hoodies">
+                        <span class="products__stock" id="hoodies" data-filter=".hoodies">
                             10 products
                         </span>
                     </li>
@@ -122,13 +122,13 @@
                         <h3 class="products__title" data-filter=".shirts">
                             Shirts
                         </h3>
-                        <span class="products__stock" data-filter=".shirts">
+                        <span class="products__stock" id="shirt" data-filter=".shirts">
                             15 products
                         </span>
                     </li>
                 
                     <li class="products__item" data-filter=".sweatshirts">
-                        <h3 class="products__title" data-filter=".sweatshirts">
+                        <h3 class="products__title" id="sweatshirts" data-filter=".sweatshirts">
                             Sweatshirts
                         </h3>
                         <span class="products__stock" data-filter=".sweatshirts">
@@ -201,16 +201,16 @@
 
                 <ul class="footer__links menu">
                     <li>
-                        <a href="#" class="footer__link">Support Center</a>
+                        <a href="https://i.pinimg.com/originals/70/10/7f/70107f4fd9eefcf6d958f947e2d938b6.gif" target="_blank" class="footer__link">Support Center</a>
                     </li>
                     <li>
-                        <a href="#" class="footer__link">Customer Support</a>
+                        <a href="https://as1.ftcdn.net/v2/jpg/00/53/91/80/1000_F_53918053_JpCWSPxWvlm11EdXTFyLTBiwy4fi4vwE.jpg" target="_blank" class="footer__link">Customer Support</a>
                     </li>
                     <li>
                         <a href="https://velvety-gingersnap-8800b6.netlify.app/"" target="_blank" class="footer__link">About Us</a>
                     </li>
                     <li>
-                        <a href="#" class="footer__link">Copy Right</a>
+                        <a href="https://culturacolectiva-cultura-colectiva-prod.cdn.arcpublishing.com/resizer/GK4tUYek5FXDrd0adwtwV3sed84=/600x450/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/culturacolectiva/TV2TFHWK3JD27IJVSSHGTPF3G4.jpg" target="_blank" class="footer__link">Copy Right</a>
                     </li>
                 </ul>
             </div>
@@ -220,13 +220,13 @@
 
                 <ul class="footer__links menu">
                     <li>
-                        <a href="#" class="footer__link">Hoodies</a>
+                        <a href="#hoodies" class="footer__link">Hoodies</a>
                     </li>
                     <li>
-                        <a href="#" class="footer__link">Shirts</a>
+                        <a href="#shirt" class="footer__link">Shirts</a>
                     </li>
                     <li>
-                        <a href="#" class="footer__link">Sweatshirts</a>
+                        <a href="#sweatshirts" class="footer__link">Sweatshirts</a>
                     </li>
                 </ul>
             </div>

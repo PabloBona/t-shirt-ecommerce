@@ -102,7 +102,8 @@ button {
     outline: none;
 }
 
-/*========== Variables Dark theme ==========*/
+/*Cambio Colores Modo Nocturno*/
+/*Night Mode Colors Chamge*/
 body.dark-theme {
     --first-color: hsl(182, 53%, 74%);
     --button-color: hsl(246, 16%, 12%);
@@ -314,6 +315,20 @@ body.dark-theme {
     top: .9rem;
     right: 1.25rem;
     cursor: pointer;
+}
+
+ /* Change Size Icons*/
+ .bxs-shopping-bags {
+    font-size: 30px;
+    color: rgb(42, 41, 41);
+ }
+.bxs-moon {
+    font-size: 30px;
+    color: rgb(42, 41, 41);
+}
+.bx-menu-alt-right {
+    font-size: 30px;
+    color: rgb(42, 41, 41);
 }
 
   /* Show menu */
@@ -983,4 +998,7 @@ body.dark-theme {
     .scrollup {
         right: 3rem;
     }
+}
+#cart {
+    background-color: rgb(252, 246, 246);
 }

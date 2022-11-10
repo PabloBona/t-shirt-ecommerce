@@ -1,21 +1,52 @@
-
-
+//Const 
 const body = document.querySelector("body");
 const productContainer = document.querySelector(".products__content");
-const header = document.querySelector(".header");
-const showMenu = document.querySelector(".nav__toggle");
+const header = document.querySelector("#header");
+const shopIcon = document.querySelector(".nav__shop")
+const cartPrice = document.querySelector(".cart__prices");
+const cartShopItems = document.querySelector(".cart__card");
+
+
+
+
+
+// Night Mode
+const mode__night = document.querySelector("#night-button");
+
+mode__night.addEventListener("click", function(){
+    body.classList.toggle("dark-theme");
+    mode__night.classList.toggle("bx-sun");
+});
+
+// Half burguer Menu Show
+const menuShow = document.querySelector(".nav__toggle");
+menuShow.addEventListener("click", function(){
+    menu.classList.toggle("show-menu");
+});
+
+// Open & Close Menu
 const menu = document.querySelector(".nav__menu");
 const closeMenu = document.querySelector(".nav__close");
-const modeNight = document.querySelector("#theme-button");
-const shopIcon = document.querySelector(".nav__shop")
+closeMenu.addEventListener("click", function(){
+    menu.classList.remove("show-menu");
+    menu.classList.add("nav__menu");
+});
+
+// Open & Close Cart
 const cart = document.querySelector(".cart")
-const closeCart = document.querySelector("#cart-close");
+const cartClose = document.querySelector("#cart-close");
+cartClose.addEventListener("click", function(){
+    cart.classList.remove("show-cart");
+    cart.classList.add("cart");
+});
+
+//Db Products
 let products = [
     {
         id: 1,
         name: "Hoodies",
         price: 14.00,
-        image: "./assets/img/featured1.png",
+        image: "./assets/imagenes/featured1.png",
         category: "hoodies",
         stock: 10,
     },
@@ -24,7 +55,7 @@ let products = [
         id: 2,
         name: "Shirts",
         price: 24.00,
-        image: "./assets/img/featured2.png",
+        image: "./assets/imagenes/featured2.png",
         category: "shirts",
         stock: 15,
     },
@@ -33,25 +64,41 @@ let products = [
         id: 3,
         name: "Sweatshirts",
         price: 24.00,
-        image: "./assets/img/featured3.png",
+        image: "./assets/imagenes/featured3.png",
         category: "sweatshirts",
         stock: 20,
     },
 ];
-const cartContainer = document.querySelector(".cart__container");
-const cartPrice = document.querySelector(".cart__prices");
-const cartShopItems = document.querySelector(".cart__card");
-const cartItemsCount = document.querySelector("#items-count");
-const cartCount = document.querySelector("#cart-count");
-const cartPriceTotal = document.querySelector("#cart-total");
-const sellWear = document.querySelector(".cart__checkout");
-let objCartShop = {};
+
+//Menu All/hoodies/shirts/sweat
 const productShow = document.querySelector(".products__filters");
+productShow.addEventListener("click", (e) => {
+    
+    if(e.target.classList.contains("products__title") || e.target.classList.contains("products__stock")){
+        productContainer.innerHTML = "";
+        const showWhat = e.target.getAttribute("data-filter");
+        if(showWhat === "all"){
+            productContainer.innerHTML = "";
+            printWears();
+        }
+        if(showWhat === ".hoodies"){
+            productContainer.innerHTML = "";
+            printWearsWithId(1);
+        }
+        if(showWhat === ".shirts"){
+            productContainer.innerHTML = "";
+            
+            printWearsWithId(2);
+        }
+        if(showWhat === ".sweatshirts"){
+            productContainer.innerHTML = "";
+            printWearsWithId(3);
+        }
+    }
 
+})
 
-
-
-
+//product print
 function printWears(){
     let html = "";
     products.forEach((product) => {
@@ -75,6 +122,8 @@ function printWears(){
     productContainer.innerHTML = html;
 }
 
+
+// Show products with ID
 printWears();
 
 function printWearsWithId(idWear){
@@ -99,7 +148,7 @@ function printWearsWithId(idWear){
     productContainer.innerHTML = html;
 }
 
-
+//onscroll Header Event
 function scrollHead(){ 
     window.onscroll = function() {
         if(Number(window.scrollY) > 144.4){
@@ -112,71 +161,17 @@ function scrollHead(){
 }
 scrollHead();
 
-
-showMenu.addEventListener("click", function(){
-    menu.classList.toggle("show-menu");
-});
-
-
-
-closeMenu.addEventListener("click", function(){
-    menu.classList.remove("show-menu");
-    menu.classList.add("nav__menu");
-});
-
-
-
-modeNight.addEventListener("click", function(){
-    body.classList.toggle("dark-theme");
-    modeNight.classList.toggle("bx-sun");
-});
-
-
+//Toggle cart
 shopIcon.addEventListener("click", function(){
     cart.classList.toggle("show-cart");
 });
 
 
-closeCart.addEventListener("click", function(){
-    cart.classList.remove("show-cart");
-    cart.classList.add("cart");
-});
 
 
-
-productShow.addEventListener("click", (e) => {
-    
-    if(e.target.classList.contains("products__title") || e.target.classList.contains("products__stock")){
-        productContainer.innerHTML = "";
-        const showWhat = e.target.getAttribute("data-filter");
-        if(showWhat === "all"){
-            productContainer.innerHTML = "";
-            console.log("Hola goo0");
-            printWears();
-        }
-
-        if(showWhat === ".hoodies"){
-            productContainer.innerHTML = "";
-            console.log("Hola goo1");
-            printWearsWithId(1);
-        }
-
-        if(showWhat === ".shirts"){
-            productContainer.innerHTML = "";
-            console.log("Hola goo2");
-            printWearsWithId(2);
-        }
-
-        if(showWhat === ".sweatshirts"){
-            productContainer.innerHTML = "";
-            console.log("Hola goo3");
-            printWearsWithId(3);
-        }
-    }
-
-})
-
-
+// Cart Shop Values
+const cartContainer = document.querySelector(".cart__container");
+let objCartShop = {};
 
 function printWearInCart() {
     let html = "";
@@ -224,17 +219,17 @@ function printWearInCart() {
 }
 
 
-
-function pintarCarta(e){
+//control structures Cart
+function printCart(e){
     if(e.target.classList.contains("bx-plus")) {
         const idWear = parseInt(e.target.getAttribute("data-id"));
 
         const currentWear = products.find((product) => product.id === idWear);
-        if(!currentWear.stock){
+    if(!currentWear.stock){
             return alert("Sorry, we are out of stock");
         }
 
-        if(objCartShop[currentWear.id]){
+    if(objCartShop[currentWear.id]){
             addWear(idWear);
         }else {
             objCartShop[currentWear.id] = {...currentWear};
@@ -245,10 +240,10 @@ function pintarCarta(e){
     }
 }
 
-productContainer.addEventListener("click", pintarCarta);
+productContainer.addEventListener("click", printCart);
 
 
-
+//Add articles
 function addWear(idWear){
     const currentWear = products.find((product) => product.id === idWear);
 
@@ -262,17 +257,18 @@ function addWear(idWear){
     objCartShop[currentWear.id].amount++;
 }
 
-function deletefood(idWear){
+//delete articles
+function deleteArticle(idWear){
     delete objCartShop[idWear];
 }
 
 
-
+//Control Structure add-rest-delete articles
 cartContainer.addEventListener("click", (e) => {
     if(e.target.classList.contains("bx-minus")){
         const idWear = Number(e.target.getAttribute("data-id"));
         if(objCartShop[idWear].amount === 1){
-            deletefood(idWear);
+            deleteArticle(idWear);
         }else{
             objCartShop[idWear].amount--;
         }
@@ -286,7 +282,7 @@ cartContainer.addEventListener("click", (e) => {
 
     if(e.target.classList.contains("bx-trash-alt")){
         const idWear = Number(e.target.getAttribute("data-id"));
-        deletefood(idWear);
+        deleteArticle(idWear);
         
     }
 
@@ -294,7 +290,9 @@ cartContainer.addEventListener("click", (e) => {
 });
 
 
-
+//Count
+const cartItemsCount = document.querySelector("#items-count");
+const cartCount = document.querySelector("#cart-count");
 function countProduct(){
     const arrayCartShop = Object.values(objCartShop);
 
@@ -310,10 +308,10 @@ function countProduct(){
 }
 
 
-
+//Empty cart/Total Amount
+const cartPriceTotal = document.querySelector("#cart-total");
 function printTotal(){
     const arrayCartShop = Object.values(objCartShop);
-
     if(!arrayCartShop.length){
         return (cartContainer.innerHTML = `
         <div class="cart__empty">
@@ -323,19 +321,15 @@ function printTotal(){
         </div>
         `);
     }
-
     let montoTotal = arrayCartShop.reduce((acum, curr) => {
         acum += curr.price * curr.amount;
         return acum;
     }, 0);
-
     cartPriceTotal.textContent = `$${montoTotal}.00`;
-
-    
 }
 
 
-
+const sellWear = document.querySelector(".cart__checkout");
 sellWear.addEventListener("click", (e) => {
     if(e.target.classList.contains("cart__btn")){
         products = products.map((product) => {
@@ -349,7 +343,6 @@ sellWear.addEventListener("click", (e) => {
                 return product;
             }
         });
-
         objCartShop = {};
         printWears();
         printWearInCart();
